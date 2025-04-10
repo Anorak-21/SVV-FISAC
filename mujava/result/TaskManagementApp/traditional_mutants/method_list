@@ -1,0 +1,6 @@
+void_main(java.lang.String[])
+void_run(TaskManager,java.util.Scanner)
+void_addTask(TaskManager,java.util.Scanner)
+void_editTask(TaskManager,java.util.Scanner)
+void_deleteTask(TaskManager,java.util.Scanner)
+void_markTaskAsComplete(TaskManager,java.util.Scanner)

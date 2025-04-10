@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TaskManagementApp.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">taskmanager</a> &gt; <a href="index.source.html" class="el_package">com.svv.taskmanager</a> &gt; <span class="el_source">TaskManagementApp.java</span></div><h1>TaskManagementApp.java</h1><pre class="source lang-java linenums">package com.svv.taskmanager;
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+class Task {
+    private String title;
+    private String description;
+    private String dueDate;
+    private String priority;
+    private boolean completed;
+
+<span class="fc" id="L15">    public Task(String title, String description, String dueDate, String priority) {</span>
+<span class="fc" id="L16">        this.title = title;</span>
+<span class="fc" id="L17">        this.description = description;</span>
+<span class="fc" id="L18">        this.dueDate = dueDate;</span>
+<span class="fc" id="L19">        this.priority = priority;</span>
+<span class="fc" id="L20">        this.completed = false; // Default status</span>
+<span class="fc" id="L21">    }</span>
+
+    // Getters and setters
+    public String getTitle() {
+<span class="fc" id="L25">        return title;</span>
+    }
+
+    public void setTitle(String title) {
+<span class="fc" id="L29">        this.title = title;</span>
+<span class="fc" id="L30">    }</span>
+
+    public String getDescription() {
+<span class="fc" id="L33">        return description;</span>
+    }
+
+    public void setDescription(String description) {
+<span class="fc" id="L37">        this.description = description;</span>
+<span class="fc" id="L38">    }</span>
+
+    public String getDueDate() {
+<span class="fc" id="L41">        return dueDate;</span>
+    }
+
+    public void setDueDate(String dueDate) {
+<span class="fc" id="L45">        this.dueDate = dueDate;</span>
+<span class="fc" id="L46">    }</span>
+
+    public String getPriority() {
+<span class="fc" id="L49">        return priority;</span>
+    }
+
+    public void setPriority(String priority) {
+<span class="fc" id="L53">        this.priority = priority;</span>
+<span class="fc" id="L54">    }</span>
+
+    public boolean isCompleted() {
+<span class="fc" id="L57">        return completed;</span>
+    }
+
+    public void setCompleted(boolean completed) {
+<span class="fc" id="L61">        this.completed = completed;</span>
+<span class="fc" id="L62">    }</span>
+
+    @Override
+    public String toString() {
+<span class="fc" id="L66">        return &quot;Title: &quot; + title + &quot;\n&quot;</span>
+                + &quot;Description: &quot; + description + &quot;\n&quot;
+                + &quot;Due Date: &quot; + dueDate + &quot;\n&quot;
+                + &quot;Priority: &quot; + priority + &quot;\n&quot;
+<span class="fc bfc" id="L70" title="All 2 branches covered.">                + &quot;Status: &quot; + (completed ? &quot;Completed&quot; : &quot;Not Completed&quot;) + &quot;\n&quot;;</span>
+    }
+}
+
+class TaskManager {
+    private List&lt;Task&gt; tasks;
+
+<span class="fc" id="L77">    public TaskManager() {</span>
+<span class="fc" id="L78">        this.tasks = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L79">    }</span>
+
+    public void addTask(Task task) {
+<span class="fc" id="L82">        tasks.add(task);</span>
+<span class="fc" id="L83">    }</span>
+
+    public void displayTasks() {
+<span class="fc bfc" id="L86" title="All 2 branches covered.">        if (tasks.isEmpty()) {</span>
+<span class="fc" id="L87">            System.out.println(&quot;No tasks found.&quot;);</span>
+<span class="fc" id="L88">            return;</span>
+        }
+<span class="fc" id="L90">        System.out.println(&quot;Tasks:&quot;);</span>
+<span class="fc bfc" id="L91" title="All 2 branches covered.">        for (Task task : tasks) {</span>
+<span class="fc" id="L92">            System.out.println(task);</span>
+<span class="fc" id="L93">        }</span>
+<span class="fc" id="L94">    }</span>
+
+    public void editTask(int index, Task updatedTask) {
+<span class="fc bfc" id="L97" title="All 4 branches covered.">        if (index &gt;= 0 &amp;&amp; index &lt; tasks.size()) {</span>
+<span class="fc" id="L98">            tasks.set(index, updatedTask);</span>
+<span class="fc" id="L99">            System.out.println(&quot;Task updated successfully.&quot;);</span>
+        } else {
+<span class="fc" id="L101">            System.out.println(&quot;Invalid task index.&quot;);</span>
+        }
+<span class="fc" id="L103">    }</span>
+
+    public void deleteTask(int index) {
+<span class="fc bfc" id="L106" title="All 4 branches covered.">        if (index &gt;= 0 &amp;&amp; index &lt; tasks.size()) {</span>
+<span class="fc" id="L107">            tasks.remove(index);</span>
+<span class="fc" id="L108">            System.out.println(&quot;Task deleted successfully.&quot;);</span>
+        } else {
+<span class="fc" id="L110">            System.out.println(&quot;Invalid task index.&quot;);</span>
+        }
+<span class="fc" id="L112">    }</span>
+
+    public void markTaskAsComplete(int index) {
+<span class="fc bfc" id="L115" title="All 4 branches covered.">        if (index &gt;= 0 &amp;&amp; index &lt; tasks.size()) {</span>
+<span class="fc" id="L116">            Task task = tasks.get(index);</span>
+<span class="fc" id="L117">            task.setCompleted(true);</span>
+<span class="fc" id="L118">            tasks.set(index, task);</span>
+<span class="fc" id="L119">            System.out.println(&quot;Task marked as complete.&quot;);</span>
+<span class="fc" id="L120">        } else {</span>
+<span class="fc" id="L121">            System.out.println(&quot;Invalid task index.&quot;);</span>
+        }
+
+<span class="fc" id="L124">    }</span>
+    public List&lt;Task&gt; getTasks() {
+<span class="fc" id="L126">        return tasks;</span>
+    }
+}
+
+<span class="fc" id="L130">public class TaskManagementApp {</span>
+    public static void main(String[] args) {
+<span class="fc" id="L132">        Scanner scanner = new Scanner(System.in);</span>
+<span class="fc" id="L133">        TaskManager taskManager = new TaskManager();</span>
+<span class="fc" id="L134">        run(taskManager, scanner);</span>
+<span class="fc" id="L135">        scanner.close();</span>
+<span class="fc" id="L136">    }</span>
+
+    public static void run(TaskManager taskManager, Scanner scanner) {
+<span class="fc" id="L139">        boolean exit = false;</span>
+<span class="fc bfc" id="L140" title="All 2 branches covered.">        while (!exit) {</span>
+<span class="fc" id="L141">            System.out.println(&quot;\nTask Management Menu:&quot;);</span>
+<span class="fc" id="L142">            System.out.println(&quot;1. View tasks&quot;);</span>
+<span class="fc" id="L143">            System.out.println(&quot;2. Add task&quot;);</span>
+<span class="fc" id="L144">            System.out.println(&quot;3. Edit task&quot;);</span>
+<span class="fc" id="L145">            System.out.println(&quot;4. Delete task&quot;);</span>
+<span class="fc" id="L146">            System.out.println(&quot;5. Mark task as complete&quot;);</span>
+<span class="fc" id="L147">            System.out.println(&quot;6. Exit&quot;);</span>
+<span class="fc" id="L148">            System.out.print(&quot;Enter your choice: &quot;);</span>
+<span class="fc" id="L149">            int choice = scanner.nextInt();</span>
+<span class="fc" id="L150">            scanner.nextLine(); // Consume newline</span>
+
+<span class="fc bfc" id="L152" title="All 7 branches covered.">            switch (choice) {</span>
+                case 1:
+<span class="fc" id="L154">                    taskManager.displayTasks();</span>
+<span class="fc" id="L155">                    break;</span>
+                case 2:
+<span class="fc" id="L157">                    System.out.print(&quot;Enter task title: &quot;);</span>
+<span class="fc" id="L158">                    String title = scanner.nextLine();</span>
+<span class="fc" id="L159">                    System.out.print(&quot;Enter task description: &quot;);</span>
+<span class="fc" id="L160">                    String description = scanner.nextLine();</span>
+<span class="fc" id="L161">                    System.out.print(&quot;Enter due date: &quot;);</span>
+<span class="fc" id="L162">                    String dueDate = scanner.nextLine();</span>
+<span class="fc" id="L163">                    System.out.print(&quot;Enter priority (High/Medium/Low): &quot;);</span>
+<span class="fc" id="L164">                    String priority = scanner.nextLine();</span>
+<span class="fc" id="L165">                    Task newTask = new Task(title, description, dueDate, priority);</span>
+<span class="fc" id="L166">                    taskManager.addTask(newTask);</span>
+<span class="fc" id="L167">                    System.out.println(&quot;Task added successfully.&quot;);</span>
+<span class="fc" id="L168">                    break;</span>
+                case 3:
+<span class="fc" id="L170">                    System.out.print(&quot;Enter index of task to edit: &quot;);</span>
+<span class="fc" id="L171">                    int editIndex = scanner.nextInt();</span>
+<span class="fc" id="L172">                    scanner.nextLine(); // Consume newline</span>
+<span class="fc" id="L173">                    System.out.print(&quot;Enter new title: &quot;);</span>
+<span class="fc" id="L174">                    String newTitle = scanner.nextLine();</span>
+<span class="fc" id="L175">                    System.out.print(&quot;Enter new description: &quot;);</span>
+<span class="fc" id="L176">                    String newDescription = scanner.nextLine();</span>
+<span class="fc" id="L177">                    System.out.print(&quot;Enter new due date: &quot;);</span>
+<span class="fc" id="L178">                    String newDueDate = scanner.nextLine();</span>
+<span class="fc" id="L179">                    System.out.print(&quot;Enter new priority (High/Medium/Low): &quot;);</span>
+<span class="fc" id="L180">                    String newPriority = scanner.nextLine();</span>
+<span class="fc" id="L181">                    Task updatedTask = new Task(newTitle, newDescription, newDueDate, newPriority);</span>
+<span class="fc" id="L182">                    taskManager.editTask(editIndex, updatedTask);</span>
+<span class="fc" id="L183">                    break;</span>
+                case 4:
+<span class="fc" id="L185">                    System.out.print(&quot;Enter index of task to delete: &quot;);</span>
+<span class="fc" id="L186">                    int deleteIndex = scanner.nextInt();</span>
+<span class="fc" id="L187">                    scanner.nextLine(); // consume newline</span>
+<span class="fc" id="L188">                    taskManager.deleteTask(deleteIndex);</span>
+<span class="fc" id="L189">                    break;</span>
+                case 5:
+<span class="fc" id="L191">                    System.out.print(&quot;Enter index of task to mark as complete: &quot;);</span>
+<span class="fc" id="L192">                    int completeIndex = scanner.nextInt();</span>
+<span class="fc" id="L193">                    scanner.nextLine(); // consume newline</span>
+<span class="fc" id="L194">                    taskManager.markTaskAsComplete(completeIndex);</span>
+<span class="fc" id="L195">                    break;</span>
+                case 6:
+<span class="fc" id="L197">                    exit = true;</span>
+<span class="fc" id="L198">                    break;</span>
+                default:
+<span class="fc" id="L200">                    System.out.println(&quot;Invalid choice. Please enter a valid option.&quot;);</span>
+            }
+<span class="fc" id="L202">        }</span>
+<span class="fc" id="L203">        System.out.println(&quot;Exiting Task Management App. Goodbye!&quot;);</span>
+<span class="fc" id="L204">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

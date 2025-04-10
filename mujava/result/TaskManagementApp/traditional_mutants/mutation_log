@@ -1,0 +1,6 @@
+ODL_1:77:void_editTask(TaskManager,java.util.Scanner):Integer.parseInt( scanner.nextLine() ) - 1 => Integer.parseInt( scanner.nextLine() )
+ODL_2:77:void_editTask(TaskManager,java.util.Scanner):Integer.parseInt( scanner.nextLine() ) - 1 => 1
+ODL_3:95:void_deleteTask(TaskManager,java.util.Scanner):Integer.parseInt( scanner.nextLine() ) - 1 => Integer.parseInt( scanner.nextLine() )
+ODL_4:95:void_deleteTask(TaskManager,java.util.Scanner):Integer.parseInt( scanner.nextLine() ) - 1 => 1
+ODL_5:104:void_markTaskAsComplete(TaskManager,java.util.Scanner):Integer.parseInt( scanner.nextLine() ) - 1 => Integer.parseInt( scanner.nextLine() )
+ODL_6:104:void_markTaskAsComplete(TaskManager,java.util.Scanner):Integer.parseInt( scanner.nextLine() ) - 1 => 1

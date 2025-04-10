@@ -1,0 +1,7 @@
+TaskManager()
+void_addTask(Task)
+void_deleteTask(int)
+void_editTask(int,Task)
+void_markTaskAsComplete(int)
+void_displayTasks()
+java.util.List_getTasks()

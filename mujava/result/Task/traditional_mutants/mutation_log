@@ -1,0 +1,16 @@
+ODL_1:97:java.lang.String_toString():title + " | " => title
+ODL_2:97:java.lang.String_toString():title + " | " => " | "
+ODL_3:97:java.lang.String_toString():title + " | " + description => title + " | "
+ODL_4:97:java.lang.String_toString():title + " | " + description => description
+ODL_5:97:java.lang.String_toString():title + " | " + description + " | Due: " => title + " | " + description
+ODL_6:97:java.lang.String_toString():title + " | " + description + " | Due: " => " | Due: "
+ODL_7:97:java.lang.String_toString():title + " | " + description + " | Due: " + dueDate => title + " | " + description + " | Due: "
+ODL_8:97:java.lang.String_toString():title + " | " + description + " | Due: " + dueDate => dueDate
+ODL_9:97:java.lang.String_toString():title + " | " + description + " | Due: " + dueDate + " | Priority: " => title + " | " + description + " | Due: " + dueDate
+ODL_10:97:java.lang.String_toString():title + " | " + description + " | Due: " + dueDate + " | Priority: " => " | Priority: "
+ODL_11:97:java.lang.String_toString():title + " | " + description + " | Due: " + dueDate + " | Priority: " + priorityText => title + " | " + description + " | Due: " + dueDate + " | Priority: "
+ODL_12:97:java.lang.String_toString():title + " | " + description + " | Due: " + dueDate + " | Priority: " + priorityText => priorityText
+ODL_13:97:java.lang.String_toString():title + " | " + description + " | Due: " + dueDate + " | Priority: " + priorityText + " | Completed: " => title + " | " + description + " | Due: " + dueDate + " | Priority: " + priorityText
+ODL_14:97:java.lang.String_toString():title + " | " + description + " | Due: " + dueDate + " | Priority: " + priorityText + " | Completed: " => " | Completed: "
+ODL_15:97:java.lang.String_toString():title + " | " + description + " | Due: " + dueDate + " | Priority: " + priorityText + " | Completed: " + completed => title + " | " + description + " | Due: " + dueDate + " | Priority: " + priorityText + " | Completed: "
+ODL_16:97:java.lang.String_toString():title + " | " + description + " | Due: " + dueDate + " | Priority: " + priorityText + " | Completed: " + completed => completed

@@ -1,0 +1,6 @@
+projectKey=SVV-FISAC
+serverUrl=http://localhost:9000
+serverVersion=25.3.0.104237
+dashboardUrl=http://localhost:9000/dashboard?id=SVV-FISAC
+ceTaskId=2bf539bd-0158-44f2-896a-fc3329507788
+ceTaskUrl=http://localhost:9000/api/ce/task?id=2bf539bd-0158-44f2-896a-fc3329507788
